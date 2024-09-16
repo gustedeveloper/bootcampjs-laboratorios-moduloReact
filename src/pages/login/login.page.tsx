@@ -1,10 +1,23 @@
 import React from "react";
 import { Credentials } from "./login.vm";
 import { LoginFormComponent } from "./components";
+import { useNavigate } from "react-router-dom";
+import { mapCredentialsFromVmToApi } from "./login.mapper";
+import { isValidLogin } from "./api";
+import { appRoutes } from "@/core/router";
 
 export const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (credentials: Credentials) => {
-    console.log(credentials);
+    const apiCredentials = mapCredentialsFromVmToApi(credentials);
+    isValidLogin(apiCredentials).then((isValid) => {
+      if (isValid) {
+        navigate(appRoutes.accountList);
+      } else {
+        alert("Usuario o clave no correctas ppsst: admin@email.com / test");
+      }
+    });
   };
 
   return (

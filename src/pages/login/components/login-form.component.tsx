@@ -1,5 +1,11 @@
 import React from "react";
-import { Credentials, createEmptyCredentials } from "../login.vm";
+import {
+  Credentials,
+  CredentialsFormErrors,
+  createEmptyCredentials,
+  createEmptyCredentialsFormErrors,
+} from "../login.vm";
+import { validateForm } from "../login.validation";
 
 interface Props {
   onLogin: (credentials: Credentials) => void;
@@ -11,6 +17,10 @@ export const LoginFormComponent: React.FC<Props> = (props) => {
     createEmptyCredentials()
   );
 
+  const [errors, setErrors] = React.useState<CredentialsFormErrors>(
+    createEmptyCredentialsFormErrors()
+  );
+
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCredentials({
       ...credentials,
@@ -20,7 +30,12 @@ export const LoginFormComponent: React.FC<Props> = (props) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onLogin(credentials);
+    const validationResult = validateForm(credentials);
+    setErrors(validationResult.errors);
+
+    if (validationResult.succeeded) {
+      onLogin(credentials);
+    }
   };
 
   return (
@@ -33,6 +48,7 @@ export const LoginFormComponent: React.FC<Props> = (props) => {
           name="user"
           onChange={handleFieldChange}
         ></input>
+        {errors.user && <p>{errors.user}</p>}
       </div>
       <div>
         <label htmlFor="password">Contraseña</label>
@@ -42,6 +58,7 @@ export const LoginFormComponent: React.FC<Props> = (props) => {
           name="password"
           onChange={handleFieldChange}
         ></input>
+        {errors.password && <p>{errors.password}</p>}
       </div>
       <button type="submit">Acceder</button>
     </form>

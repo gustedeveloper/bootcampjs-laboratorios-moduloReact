@@ -1,13 +1,20 @@
 import React from "react";
-import { appRoutes } from "@/core/router";
-import { Link } from "react-router-dom";
 
 export const LoginPage: React.FC = () => {
   return (
     <div>
-      Login
-      <br />
-      <Link to={appRoutes.accountList}>Mis cuentas</Link>
+      <h1>Acceso</h1>
+      <form>
+        <div>
+          <label htmlFor="username">Usuario</label>
+          <input type="text" id="username"></input>
+        </div>
+        <div>
+          <label htmlFor="password">Contraseña</label>
+          <input type="password" id="password"></input>
+        </div>
+        <button type="submit">Acceder</button>
+      </form>
     </div>
   );
 };

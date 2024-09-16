@@ -26,7 +26,10 @@ export const LoginPage: React.FC = () => {
       <header className={classes.header}>
         <img className={classes.logo} src="assets/logo_header.svg" />
       </header>
-      <LoginFormComponent onLogin={handleSubmit} />
+      <div className={classes.bgImg}></div>
+      <div className={classes.box}>
+        <LoginFormComponent onLogin={handleSubmit} />
+      </div>
     </>
   );
 };

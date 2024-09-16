@@ -33,3 +33,30 @@
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2), 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+.box h1 {
+  border-left: 10px solid var(--primary_color);
+  padding-left: 10px;
+  font-size: 2.2rem;
+  font-weight: 300;
+}
+
+.input-footer {
+  font-weight: 300;
+}
+
+.input-footer:before {
+  content: "";
+  background: url(assets/secure_site.svg) no-repeat center center;
+  width: 40px;
+  height: 15px;
+  position: relative;
+  left: 0;
+  top: 0;
+  padding-right: 20px;
+  margin-right: 10px;
+}
+
+.input-footer strong {
+  font-weight: 600;
+}

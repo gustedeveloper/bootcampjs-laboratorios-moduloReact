@@ -28,7 +28,11 @@ export const LoginPage: React.FC = () => {
       </header>
       <div className={classes.bgImg}></div>
       <div className={classes.box}>
+        <h1>Acceso</h1>
         <LoginFormComponent onLogin={handleSubmit} />
+        <h4 className={classes.inputFooter}>
+          Está Usted en un <strong>sitio seguro</strong>
+        </h4>
       </div>
     </>
   );

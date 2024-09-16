@@ -6,6 +6,7 @@ import {
   createEmptyCredentialsFormErrors,
 } from "../login.vm";
 import { validateForm } from "../login.validation";
+import classes from "./login-form.component.module.css";
 
 interface Props {
   onLogin: (credentials: Credentials) => void;
@@ -39,28 +40,32 @@ export const LoginFormComponent: React.FC<Props> = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={classes.form}>
       <div>
-        <label htmlFor="username">Usuario</label>
         <input
           type="text"
           id="username"
           name="user"
+          placeholder="Usuario"
           onChange={handleFieldChange}
+          className={errors.user ? classes.inputError : ""}
         ></input>
-        {errors.user && <p>{errors.user}</p>}
+        {errors.user && <p className={classes.error}>{errors.user}</p>}
       </div>
       <div>
-        <label htmlFor="password">Contraseña</label>
         <input
           type="password"
           id="password"
           name="password"
+          placeholder="Clave"
           onChange={handleFieldChange}
+          className={errors.password ? classes.inputError : ""}
         ></input>
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <p className={classes.error}>{errors.password}</p>}
       </div>
-      <button type="submit">Acceder</button>
+      <button className={classes.btnSubmit} type="submit">
+        Acceder
+      </button>
     </form>
   );
 };

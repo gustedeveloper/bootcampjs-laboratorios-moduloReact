@@ -1,5 +1,10 @@
 import React from "react";
-import { HeaderComponent, NavBarComponent } from "./components";
+import {
+  HeaderComponent,
+  NavBarComponent,
+  FooterComponent,
+} from "./components";
+import classes from "./app-layout.module.css";
 
 interface Props {
   children: React.ReactNode;
@@ -12,8 +17,8 @@ export const AppLayout: React.FC<Props> = (props) => {
     <>
       <HeaderComponent />
       <NavBarComponent />
-      {children}
-      <h1>Aquí el footer</h1>
+      <main className={classes.mainContent}>{children}</main>
+      <FooterComponent />
     </>
   );
 };

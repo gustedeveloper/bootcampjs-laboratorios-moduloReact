@@ -19,6 +19,8 @@ export const AccountListPage: React.FC = () => {
           Transferencia desde cuenta 1
         </Link>
         <br />
+        <Link to={appRoutes.createAccount}>Crear cuenta</Link>
+        <br />
         <Link to={generatePath(appRoutes.editAccount, { id: 1 })}>
           Editar cuenta 1
         </Link>

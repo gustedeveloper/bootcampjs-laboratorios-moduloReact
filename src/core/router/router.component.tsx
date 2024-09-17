@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   AccountListPage,
   AccountPage,
+  CreateAccount,
   LoginPage,
   MovementListPage,
   TransferPage,
@@ -14,6 +15,7 @@ export const Router = () => {
       <Routes>
         <Route path={appRoutes.root} element={<LoginPage />} />
         <Route path={appRoutes.accountList} element={<AccountListPage />} />
+        <Route path={appRoutes.createAccount} element={<CreateAccount />} />
         <Route path={appRoutes.editAccount} element={<AccountPage />} />
         <Route path={appRoutes.movements} element={<MovementListPage />} />
         <Route path={appRoutes.transfer} element={<TransferPage />} />

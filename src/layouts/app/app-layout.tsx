@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderComponent } from "./components";
+import { HeaderComponent, NavBarComponent } from "./components";
 
 interface Props {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ export const AppLayout: React.FC<Props> = (props) => {
   return (
     <>
       <HeaderComponent />
-      <h1>Aquí iría la cabecera</h1>
+      <NavBarComponent />
       {children}
       <h1>Aquí el footer</h1>
     </>

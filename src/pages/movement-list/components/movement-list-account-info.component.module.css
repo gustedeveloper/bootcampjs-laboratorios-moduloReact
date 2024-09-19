@@ -1,6 +1,7 @@
 .info-container {
   display: flex;
   justify-content: space-between;
+  padding-top: 5px;
 }
 
 .info-container span {

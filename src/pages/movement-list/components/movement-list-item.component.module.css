@@ -10,7 +10,6 @@
 
 .data-cell {
   font-size: 16px;
-  font-weight: bolder;
   padding: 15px;
   color: var(--secondary_color);
   align-self: center;

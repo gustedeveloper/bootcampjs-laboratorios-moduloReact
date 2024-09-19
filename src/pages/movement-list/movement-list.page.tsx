@@ -1,11 +1,13 @@
 import { AppLayout } from "@/layouts";
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { MovementVM } from "./movement-list.vm";
 import {
   MovementListAccountInfoComponent,
   MovementListHeaderComponent,
 } from "./components";
 import classes from "./movement-list.page.module.css";
+import { Account, createEmptyAccount, getAccount } from "./api";
 
 const mockMovementListData: MovementVM[] = [
   {
@@ -38,14 +40,24 @@ const mockMovementListData: MovementVM[] = [
 ];
 
 export const MovementListPage: React.FC = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
+  const accountId = pathname[pathname.length - 1];
+
   const [movementList /*setMovementList*/] =
     React.useState<MovementVM[]>(mockMovementListData);
+
+  const [account, setAccount] = React.useState<Account>(createEmptyAccount());
+
+  React.useEffect(() => {
+    getAccount(accountId).then((data) => setAccount(data));
+  }, []);
 
   return (
     <AppLayout>
       <div className={classes.root}>
-        <MovementListHeaderComponent />
-        <MovementListAccountInfoComponent />
+        <MovementListHeaderComponent account={account} />
+        <MovementListAccountInfoComponent account={account} />
         {movementList.map((movement) => (
           <div key={movement.id}>
             {movement.amount} - {movement.description}

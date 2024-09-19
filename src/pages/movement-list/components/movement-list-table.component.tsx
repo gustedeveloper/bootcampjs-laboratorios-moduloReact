@@ -1,6 +1,7 @@
 import React from "react";
 import { MovementVM } from "../movement-list.vm";
 import classes from "./movement-list-table.component.module.css";
+import { MovementListItemComponent } from "./movement-list-item.component";
 
 interface Props {
   movementList: MovementVM[];
@@ -20,9 +21,10 @@ export const MovementListTableComponent: React.FC<Props> = (props) => {
           <span className={classes.headerCell}>SALDO DISPONIBLE</span>
         </div>
         {movementList.map((movement) => (
-          <div key={movement.id}>
-            {movement.amount} - {movement.description}
-          </div>
+          <MovementListItemComponent
+            key={movement.id}
+            movementItem={movement}
+          />
         ))}
       </div>
     </div>

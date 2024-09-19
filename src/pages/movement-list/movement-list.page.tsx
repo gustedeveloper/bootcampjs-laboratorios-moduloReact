@@ -1,6 +1,11 @@
 import { AppLayout } from "@/layouts";
 import React from "react";
 import { MovementVM } from "./movement-list.vm";
+import {
+  MovementListAccountInfoComponent,
+  MovementListHeaderComponent,
+} from "./components";
+import classes from "./movement-list.page.module.css";
 
 const mockMovementListData: MovementVM[] = [
   {
@@ -38,12 +43,15 @@ export const MovementListPage: React.FC = () => {
 
   return (
     <AppLayout>
-      <div>Movement List</div>
-      {movementList.map((movement) => (
-        <div key={movement.id}>
-          {movement.amount} - {movement.description}
-        </div>
-      ))}
+      <div className={classes.root}>
+        <MovementListHeaderComponent />
+        <MovementListAccountInfoComponent />
+        {movementList.map((movement) => (
+          <div key={movement.id}>
+            {movement.amount} - {movement.description}
+          </div>
+        ))}
+      </div>
     </AppLayout>
   );
 };

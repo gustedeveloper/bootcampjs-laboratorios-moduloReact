@@ -1,0 +1,30 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5px solid var(--secondary_color);
+  margin-bottom: 6px;
+}
+
+.header-container h1 {
+  font-size: 2.2rem;
+  font-weight: 300;
+}
+
+.balance-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.balance-container span {
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.amount {
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary_color);
+}

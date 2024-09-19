@@ -1,0 +1,9 @@
+.info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-container span {
+  font-size: 1rem;
+  font-weight: 700;
+}

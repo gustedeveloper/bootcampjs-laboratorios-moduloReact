@@ -13,7 +13,7 @@ export const MovementListHeaderComponent: React.FC<Props> = (props) => {
       <h1>Saldos y Últimos movimientos</h1>
       <div className={classes.balanceContainer}>
         <span>SALDO DISPONIBLE</span>
-        <p className={classes.amount}>{account.balance}€</p>
+        <p className={classes.amount}>{account.balance} €</p>
       </div>
     </div>
   );

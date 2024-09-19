@@ -23,10 +23,10 @@ export const MovementListItemComponent: React.FC<Props> = (props) => {
           movementItem.amount.startsWith("-") ? classes.charge : ""
         }`}
       >
-        {movementItem.amount}€
+        {movementItem.amount} €
       </span>
       <span className={`${classes.dataCell} ${classes.alignRight}`}>
-        {movementItem.balance}€
+        {movementItem.balance} €
       </span>
     </div>
   );

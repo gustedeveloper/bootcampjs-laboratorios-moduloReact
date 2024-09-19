@@ -20,6 +20,15 @@ export const NavBarComponent: React.FC = () => {
         </li>
         <li
           className={
+            pathname.startsWith(routesPrefixes.movements)
+              ? classes.selected
+              : ""
+          }
+        >
+          Movimientos
+        </li>
+        <li
+          className={
             pathname.startsWith(routesPrefixes.transfer) ? classes.selected : ""
           }
         >

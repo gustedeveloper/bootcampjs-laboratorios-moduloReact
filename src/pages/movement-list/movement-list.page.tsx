@@ -8,6 +8,7 @@ import {
 } from "./components";
 import classes from "./movement-list.page.module.css";
 import { Account, createEmptyAccount, getAccount } from "./api";
+import { MovementListTableComponent } from "./components/movement-list-table.component";
 
 const mockMovementListData: MovementVM[] = [
   {
@@ -58,11 +59,9 @@ export const MovementListPage: React.FC = () => {
       <div className={classes.root}>
         <MovementListHeaderComponent account={account} />
         <MovementListAccountInfoComponent account={account} />
-        {movementList.map((movement) => (
-          <div key={movement.id}>
-            {movement.amount} - {movement.description}
-          </div>
-        ))}
+        <MovementListTableComponent
+          movementList={movementList}
+        ></MovementListTableComponent>
       </div>
     </AppLayout>
   );

@@ -5,18 +5,15 @@ import {
   isValidIban,
   isValueNotNullOrUndefined,
   isEmailWellFormed,
-  REQUIRED_FIELD_MESSAGE,
   INVALID_IBAN_MESSAGE,
   INVALID_AMOUNT_MESSAGE,
   INVALID_REAL_DATE_TRANSFER_MESSAGE,
   INVALID_EMAIL_MESSAGE,
   buildValidationFailedResult,
   buildValidationSucceededResult,
+  buildRequiredFieldValidationFailedResponse,
 } from "@/common/validations";
 import { FieldValidationResult } from "@/common/validations/validation.model";
-
-const buildRequiredFieldValidationFailedResponse = () =>
-  buildValidationFailedResult(REQUIRED_FIELD_MESSAGE);
 
 export const validateIBANField = (value: string): FieldValidationResult => {
   if (!isStringValueInformed(value)) {

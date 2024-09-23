@@ -119,6 +119,17 @@
       "transferDate": "Mon Sep 23 2024",
       "realTransferDate": "",
       "id": 1
+    },
+    {
+      "accountId": "3",
+      "iban": "ES6000491500051234567892\t",
+      "name": "Andrés",
+      "amount": "100",
+      "concept": "Luz 2 meses",
+      "notes": "",
+      "transferDate": "Mon Sep 23 2024",
+      "realTransferDate": "",
+      "id": 2
     }
   ]
 }

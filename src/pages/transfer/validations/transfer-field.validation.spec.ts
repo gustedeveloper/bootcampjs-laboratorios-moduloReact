@@ -1,17 +1,19 @@
-import { isValueNotNullOrUndefined } from "@/common/validations";
+import {
+  INVALID_AMOUNT_MESSAGE,
+  INVALID_EMAIL_MESSAGE,
+  INVALID_IBAN_MESSAGE,
+  INVALID_REAL_DATE_TRANSFER_MESSAGE,
+  isValueNotNullOrUndefined,
+  REQUIRED_FIELD_MESSAGE,
+} from "@/common/validations";
 import {
   validateIBANField,
-  REQUIRED_FIELD_MESSAGE,
-  INVALID_IBAN_MESSAGE,
   validateAccountIdField,
   validateNameField,
   validateAmountField,
-  INVALID_AMOUNT_MESSAGE,
   validateConceptField,
   validateRealDateTransferField,
-  INVALID_REAL_DATE_TRANSFER_MESSAGE,
   validateEmailField,
-  INVALID_EMAIL_MESSAGE,
 } from "./transfer-field.validation";
 
 describe("transfer-field.validation specs", () => {

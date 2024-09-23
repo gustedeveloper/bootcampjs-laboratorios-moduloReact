@@ -4,7 +4,7 @@ export interface AccountVM {
   iban: string;
 }
 
-export interface TransferVm {
+export interface TransferVM {
   accountId: string;
   iban: string;
   name: string;
@@ -15,7 +15,7 @@ export interface TransferVm {
   realDateTransfer?: Date;
   email: string;
 }
-export const createEmptyTransferVm = (): TransferVm => ({
+export const createEmptyTransferVm = (): TransferVM => ({
   accountId: "",
   iban: "",
   name: "",

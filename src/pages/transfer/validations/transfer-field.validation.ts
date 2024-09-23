@@ -10,17 +10,10 @@ import {
   INVALID_AMOUNT_MESSAGE,
   INVALID_REAL_DATE_TRANSFER_MESSAGE,
   INVALID_EMAIL_MESSAGE,
+  buildValidationFailedResult,
+  buildValidationSucceededResult,
 } from "@/common/validations";
 import { FieldValidationResult } from "@/common/validations/validation.model";
-
-const buildValidationFailedResult = (errorMessage: string) => ({
-  succeeded: false,
-  errorMessage,
-});
-
-const buildValidationSucceededResult = () => ({
-  succeeded: true,
-});
 
 const buildRequiredFieldValidationFailedResponse = () =>
   buildValidationFailedResult(REQUIRED_FIELD_MESSAGE);

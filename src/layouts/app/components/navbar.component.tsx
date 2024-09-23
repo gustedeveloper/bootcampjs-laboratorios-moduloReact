@@ -11,7 +11,8 @@ export const NavBarComponent: React.FC = () => {
       <ul className={classes.list}>
         <li
           className={
-            pathname.startsWith(routesPrefixes.accountList)
+            pathname.startsWith(routesPrefixes.accountList) ||
+            pathname.startsWith(routesPrefixes.createAccount)
               ? classes.selected
               : ""
           }

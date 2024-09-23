@@ -1,6 +1,7 @@
 import React from "react";
 import { AppLayout } from "@/layouts";
 import { AccountVM, TransferVM } from "./transfer.vm";
+import { TransferFormComponent } from "./components";
 
 const accountListMock: AccountVM[] = [
   { id: "1", alias: "Cuenta principal", iban: "ES91 2100 0418 4502 0005 1332" },
@@ -19,5 +20,12 @@ export const TransferPage: React.FC = () => {
     console.log(transferInfo);
   };
 
-  return <AppLayout>Transfer</AppLayout>;
+  return (
+    <AppLayout>
+      <TransferFormComponent
+        accountList={accountList}
+        onTransfer={handleTransfer}
+      />
+    </AppLayout>
+  );
 };

@@ -11,7 +11,7 @@ import {
   INVALID_REAL_DATE_TRANSFER_MESSAGE,
   INVALID_EMAIL_MESSAGE,
 } from "@/common/validations";
-import { FieldValidationResult } from "../transfer.vm";
+import { FieldValidationResult } from "@/common/validations/validation.model";
 
 const buildValidationFailedResult = (errorMessage: string) => ({
   succeeded: false,

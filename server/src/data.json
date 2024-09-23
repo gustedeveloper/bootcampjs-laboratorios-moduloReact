@@ -108,5 +108,17 @@
       "accountId": "3"
     }
   ],
-  "transfer": []
+  "transfer": [
+    {
+      "accountId": "3",
+      "iban": "ES6621000418401234567891\t",
+      "name": "Guste",
+      "amount": "55",
+      "concept": "Propina",
+      "notes": "",
+      "transferDate": "Mon Sep 23 2024",
+      "realTransferDate": "",
+      "id": 1
+    }
+  ]
 }

@@ -3,10 +3,19 @@ import React from "react";
 import classes from "./create-account.page.module.css";
 import { CreateAccountFormComponent } from "./components";
 import { Account } from "./create-account.vm";
+import { mapCreateAccountFromVmToApi } from "./create-account.mapper";
+import { saveAccount } from "./api";
 
 export const CreateAccount: React.FC = () => {
   const handleAccountCreation = (accountInfo: Account) => {
-    console.log(accountInfo);
+    const createAccount = mapCreateAccountFromVmToApi(accountInfo);
+    saveAccount(createAccount).then((result) => {
+      if (result) {
+        alert("Ha creado una nueva cuenta con éxito");
+      } else {
+        alert("Error al crear nueva cuenta");
+      }
+    });
   };
 
   return (

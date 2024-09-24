@@ -23,6 +23,14 @@
       "name": "Ahorro",
       "balance": 8500,
       "lastTransaction": "2019-11-15T08:29:04"
+    },
+    {
+      "iban": "FI29 4400 4492 0080 22",
+      "name": "Empresa",
+      "type": "1",
+      "balance": 0,
+      "lastTransaction": "2024-09-24T09:20:15.184Z",
+      "id": "tqsMU4q"
     }
   ],
   "movements": [

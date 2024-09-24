@@ -17,3 +17,8 @@ export const accountMock: Account[] = [
     name: "Cuenta de Nómina",
   },
 ];
+
+export const createEmptyAccount = (): Account => ({
+  type: "",
+  name: "",
+});

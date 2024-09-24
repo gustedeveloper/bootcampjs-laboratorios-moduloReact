@@ -1,9 +1,18 @@
 import React from "react";
-import { Account, accountMock } from "../create-account.vm";
+import { Account, accountMock, createEmptyAccount } from "../create-account.vm";
 import classes from "./create-account.form.component.module.css";
 
-export const CreateAccountFormComponent: React.FC = () => {
+interface Props {
+  onCreation: (accountInfo: Account) => void;
+}
+
+export const CreateAccountFormComponent: React.FC<Props> = (props) => {
+  const { onCreation } = props;
+
   const [account, setAccount] = React.useState<Account[]>([]);
+
+  const [create, setCreate] = React.useState<Account>(createEmptyAccount());
+
   React.useEffect(() => {
     setAccount(accountMock);
   }, []);
@@ -13,11 +22,12 @@ export const CreateAccountFormComponent: React.FC = () => {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
   ) => {
-    setAccount({ ...account, [e.target.name]: e.target.value });
+    setCreate({ ...create, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    onCreation(create);
   };
 
   return (
@@ -49,7 +59,9 @@ export const CreateAccountFormComponent: React.FC = () => {
           </div>
         </div>
         <div>
-          <button className={classes.button}>GUARDAR</button>
+          <button className={classes.button} type="submit">
+            GUARDAR
+          </button>
         </div>
       </form>
     </div>

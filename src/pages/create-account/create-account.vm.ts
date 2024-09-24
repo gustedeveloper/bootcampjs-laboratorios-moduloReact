@@ -22,3 +22,13 @@ export const createEmptyAccount = (): Account => ({
   type: "",
   name: "",
 });
+
+export interface CreateAccountError {
+  type: string;
+  name: string;
+}
+
+export const createEmptyCreateError = (): CreateAccountError => ({
+  type: "",
+  name: "",
+});

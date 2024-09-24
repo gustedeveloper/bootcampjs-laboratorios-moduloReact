@@ -1,6 +1,13 @@
 import React from "react";
-import { Account, accountMock, createEmptyAccount } from "../create-account.vm";
+import {
+  Account,
+  accountMock,
+  CreateAccountError,
+  createEmptyAccount,
+  createEmptyCreateError,
+} from "../create-account.vm";
 import classes from "./create-account.form.component.module.css";
+import { validateForm } from "../create-account.validation";
 
 interface Props {
   onCreation: (accountInfo: Account) => void;
@@ -12,6 +19,10 @@ export const CreateAccountFormComponent: React.FC<Props> = (props) => {
   const [account, setAccount] = React.useState<Account[]>([]);
 
   const [create, setCreate] = React.useState<Account>(createEmptyAccount());
+
+  const [errors, setErrors] = React.useState<CreateAccountError>(
+    createEmptyCreateError
+  );
 
   React.useEffect(() => {
     setAccount(accountMock);
@@ -27,7 +38,11 @@ export const CreateAccountFormComponent: React.FC<Props> = (props) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onCreation(create);
+    const formValidationResult = validateForm(create);
+    setErrors(formValidationResult.errors);
+    if (formValidationResult.succeeded) {
+      onCreation(create);
+    }
   };
 
   return (
@@ -48,6 +63,7 @@ export const CreateAccountFormComponent: React.FC<Props> = (props) => {
                 </option>
               ))}
             </select>
+            <p className={classes.error}>{errors.type}</p>
           </div>
           <div>
             <label>Alias:</label>
@@ -56,6 +72,7 @@ export const CreateAccountFormComponent: React.FC<Props> = (props) => {
               onChange={handleFieldChange}
               className={classes.medium}
             />
+            <p className={classes.error}>{errors.name}</p>
           </div>
         </div>
         <div>
